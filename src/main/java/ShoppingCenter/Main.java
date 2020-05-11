@@ -1,12 +1,13 @@
 package ShoppingCenter;
 
+import ShoppingCenter.Services.UserService;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import static com.sun.javafx.scene.control.skin.Utils.getResource;
+import java.util.Objects;
 
 public class Main extends Application {
 
@@ -14,9 +15,13 @@ public class Main extends Application {
         launch(args);
     }
 
+
+
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("login.fxml"));
+        //UserService.loadUsersFromFile();
+
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("login.fxml")));
         primaryStage.setTitle("SEF - Shopping Center");
         primaryStage.setScene(new Scene(root, 600, 400));
         primaryStage.show();

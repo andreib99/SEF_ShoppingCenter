@@ -1,45 +1,38 @@
 package ShoppingCenter.Controllers;
 
 
+import ShoppingCenter.Model.User;
 import javafx.fxml.FXML;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
+import ShoppingCenter.Exceptions.UsernameAlreadyExistsException;
+import ShoppingCenter.Services.UserService;
 
-public class LoginController {
+    public class LoginController {
 
-    @FXML
-    public Text loginMessage;
-    @FXML
-    public PasswordField passwordField;
-    @FXML
-    public TextField usernameField;
+        @FXML
+        private Text LoginMessage;
+        @FXML
+        private PasswordField passwordField;
+        @FXML
+        private TextField usernameField;
+        @FXML
+        private ChoiceBox<String> role;
 
-    @FXML
-    public void handleLoginButtonAction() {
-        String username = usernameField.getText();
-        String password = passwordField.getText();
-
-        if (username == null || username.isEmpty()) {
-            loginMessage.setText("Please type in a username!");
-            return;
+        @FXML
+        public void initialize() {
+            role.getItems().addAll("Client", "Manager");
         }
 
-        if (password == null || password.isEmpty()) {
-            loginMessage.setText("Password cannot be empty");
-            return;
+        @FXML
+        public void handleLoginButtonAction() {
+            try {
+                UserService.verifyUser(usernameField.getText(), passwordField.getText(), (String) role.getValue());
+                LoginMessage.setText("Account created successfully!");
+            } catch (UsernameAlreadyExistsException e) {
+                LoginMessage.setText(e.getMessage());
+            }
         }
-
-        if (username.equals("client") && password.equals("client")) {
-            loginMessage.setText("Logged in as client!");
-            return;
-        }
-
-        if (username.equals("manager") && password.equals("manager")) {
-            loginMessage.setText("Logged in as manager!");
-            return;
-        }
-
-        loginMessage.setText("Incorrect login!");
     }
-}

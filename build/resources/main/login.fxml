@@ -26,7 +26,7 @@
     <ChoiceBox fx:id="role" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
     </ChoiceBox>
 
-    <Text fx:id="registrationMessage" GridPane.columnIndex="1" GridPane.rowIndex="7"/>
+    <Text fx:id="LoginMessage" GridPane.columnIndex="1" GridPane.rowIndex="7"/>
     <HBox alignment="bottom_left" spacing="45" GridPane.columnIndex="1" GridPane.rowIndex="5">
         <Button onAction="#handleLoginButtonAction" text="Register"/>
         <Button onAction="#handleLoginButtonAction" text="Login"/>
