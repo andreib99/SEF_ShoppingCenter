@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #6495ed; -fx-background-radius: 25; -fx-background-image: ;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ShoppingCenter.Controllers.RegisterController">
+   <children>
+      <Label layoutX="198.0" layoutY="14.0" maxWidth="205.0" minWidth="-Infinity" prefHeight="49.0" prefWidth="205.0" text="SEF - SHOPPING CENTRE">
+         <font>
+            <Font name="Arial Bold Italic" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="243.0" layoutY="55.0" text="REGISTRATION">
+         <font>
+            <Font name="Arial Bold Italic" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="123.0" layoutY="154.0" text="Name">
+         <font>
+            <Font name="Arial Bold Italic" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="109.0" layoutY="192.0" text="Username">
+         <font>
+            <Font name="Arial Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="110.0" layoutY="230.0" text="Password">
+         <font>
+            <Font name="Arial Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="84.0" layoutY="267.0" text="Phone number">
+         <font>
+            <Font name="Arial Bold" size="13.0" />
+         </font>
+      </Label>
+      <TextField fx:id="nameField" alignment="TOP_CENTER" layoutX="198.0" layoutY="150.0" promptText="name" />
+      <TextField fx:id="usernameField" alignment="CENTER" layoutX="198.0" layoutY="188.0" promptText="username" />
+      <TextField fx:id="addressField" alignment="CENTER" layoutX="198.0" layoutY="300.0" promptText="address" />
+      <TextField fx:id="numberField" alignment="CENTER" layoutX="198.0" layoutY="262.0" promptText="number" />
+      <Label layoutX="114.0" layoutY="304.0" text="Address">
+         <font>
+            <Font name="Arial Bold" size="13.0" />
+         </font></Label>
+      <PasswordField fx:id="passwordField" alignment="CENTER" layoutX="198.0" layoutY="225.0" promptText="password" />
+      <Label layoutX="105.0" layoutY="338.0" text="Store name">
+         <font>
+            <Font name="Arial Bold" size="13.0" />
+         </font>
+      </Label>
+      <TextField fx:id="storeField" alignment="CENTER" layoutX="198.0" layoutY="334.0" promptText="store name" />
+      <Label layoutX="127.0" layoutY="112.0" text="Role">
+         <font>
+            <Font name="Arial Bold" size="13.0" />
+         </font>
+      </Label>
+      <ChoiceBox fx:id="role" layoutX="197.0" layoutY="108.0" prefWidth="150.0" />
+   </children>
+</Pane>
