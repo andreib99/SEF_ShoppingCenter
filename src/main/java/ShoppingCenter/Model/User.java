@@ -5,14 +5,22 @@ public class User {
     private String username;
     private String password;
     private String role;
+    private String number;
+    private String address;
+    private String name;
+    private String store;
 
     public User() {
     }
 
-    public User(String username, String password, String role) {
+    public User(String username, String password, String role,String name,String number,String address,String store) {
         this.username = username;
         this.password = password;
         this.role = role;
+        this.name = name;
+        this.number = number;
+        this.address = address;
+        this.store = store;
     }
 
     public String getUsername() {
@@ -37,6 +45,30 @@ public class User {
 
     public void setRole(String role) {
         this.role = role;
+    }
+    public String getName(){
+        return this.name;
+    }
+    public void setName(String name){
+        this.name=name;
+    }
+    public String getNumber() {
+        return this.number;
+    }
+    public void setNumber(String number){
+        this.number=number;
+    }
+    public String getAddress(){
+        return this.address;
+    }
+    public void setAddress(String address){
+        this.address=address;
+    }
+    public String getStore() {
+        return this.store;
+    }
+    public void setStore(String store) {
+        this.store=store;
     }
 
     @Override
@@ -65,6 +97,10 @@ public class User {
                 "username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", role='" + role + '\'' +
-                '}';
+                ", name=" + name + '\'' +
+                ", number=" + number + '\'' +
+                ", address=" + address + '\'' +
+                ", store=" + store + '\'' +
+                "}";
     }
 }

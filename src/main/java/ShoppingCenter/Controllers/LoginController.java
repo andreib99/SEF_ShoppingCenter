@@ -33,10 +33,11 @@ public class LoginController< choice > {
             role.getItems().addAll("Client", "Manager");
         }
         @FXML
-        private void getChoice()
+        private String getChoice()
         {
             String choice =this.role.getValue();
             LoginMessage.setText("Picked " + choice);
+            return choice;
         }
         @FXML
         public void handleRegisterButtonAction() throws  IOException
