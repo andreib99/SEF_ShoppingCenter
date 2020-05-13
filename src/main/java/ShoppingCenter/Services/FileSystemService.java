@@ -5,8 +5,8 @@ import java.nio.file.Paths;
 
 public class FileSystemService {
 
-    private static final String APPLICATION_FOLDER = ".login-example";
-    private static final String USER_FOLDER = System.getProperty("user.home");
+    private static final String APPLICATION_FOLDER = ".ShoppingCenter";
+    private static final String USER_FOLDER = System.getProperty("users.home");
     public static final Path APPLICATION_HOME_PATH = Paths.get(USER_FOLDER, APPLICATION_FOLDER);
 
     public static Path getPathToFile(String... path) {

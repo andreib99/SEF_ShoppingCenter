@@ -3,9 +3,8 @@ package ShoppingCenter.Services;
 import ShoppingCenter.Exceptions.CouldNotWriteUsersException;
 import ShoppingCenter.Exceptions.UsernameAlreadyExistsException;
 
-import ShoppingCenter.Model.User;
-import com.fasterxml.jackson.core.JsonGenerationException;
-import com.fasterxml.jackson.databind.JsonMappingException;
+import ShoppingCenter.Model.Client;
+import ShoppingCenter.Model.Manager;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.core.type.TypeReference;
 import org.apache.commons.io.FileUtils;
@@ -21,42 +20,76 @@ import java.util.Objects;
 
 public class UserService {
 
-    private static List<User> users;
-    private static final Path USERS_PATH = FileSystemService.getPathToFile("config", "users.json");
+    public static List<Client> clients;
+    public static List<Manager> managers;
+    private static final Path CLIENTS_PATH = FileSystemService.getPathToFile("config", "clients.json");
+    private static final Path Managers_PATH = FileSystemService.getPathToFile("config", "managers.json");
 
-    public static void addUser(String username, String password, String role,
-                               String name, String number, String address,String store) throws UsernameAlreadyExistsException {
-        checkUserDoesNotAlreadyExist(username);
-        users.add(new User(username, encodePassword(username, password), role, name, number, address, store));
-        persistUsers();
+    public static void addClient(String username, String password,
+                                   String name, String number, String address) throws UsernameAlreadyExistsException {
+        checkClientDoesNotAlreadyExist(username);
+        clients.add(new Client(username, encodePassword(username, password), name, number, address));
+        persistClients();
     }
 
-    public static void loadUsersFromFile() throws IOException {
+    public static void addManager(String username, String password,
+                                 String name, String number, String store) throws UsernameAlreadyExistsException {
+        checkManagerDoesNotAlreadyExist(username);
+        managers.add(new Manager(username, encodePassword(username, password), name, number, store));
+        persistManagers();
+    }
 
-        if (!Files.exists(USERS_PATH)) {
-            FileUtils.copyURLToFile(UserService.class.getClassLoader().getResource("users.json"), USERS_PATH.toFile());
+    public static void loadClientsFromFile() throws IOException {
+
+        if (!Files.exists(CLIENTS_PATH)) {
+            FileUtils.copyURLToFile(Objects.requireNonNull(UserService.class.getClassLoader().getResource("clients.json")), CLIENTS_PATH.toFile());
         }
 
         ObjectMapper objectMapper = new ObjectMapper();
 
-        users = objectMapper.readValue(USERS_PATH.toFile(), new TypeReference<List<User>>() {
+        clients = objectMapper.readValue(CLIENTS_PATH.toFile(), new TypeReference<List<Client>>() {
         });
     }
-    public static void verifyUser(String username, String password, String role) throws UsernameAlreadyExistsException {
-       // checkUserDoesNotAlreadyExist(username); //verify if exist already
-        //users.add(new User(username, encodePassword(username, password), role));
+
+   public static void loadManagersFromFile() throws IOException {
+
+        if (!Files.exists(Managers_PATH)) {
+            FileUtils.copyURLToFile(Objects.requireNonNull(UserService.class.getClassLoader().getResource("managers.json")), Managers_PATH.toFile());
+        }
+
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        managers = objectMapper.readValue(Managers_PATH.toFile(), new TypeReference<List<Manager>>() {
+        });
     }
 
-    private static void checkUserDoesNotAlreadyExist(String username) throws UsernameAlreadyExistsException {
-        for (User user : users) {
-            if (Objects.equals(username, user.getUsername()))
+    private static void checkClientDoesNotAlreadyExist(String username) throws UsernameAlreadyExistsException {
+        for (Client client : clients) {
+            if (Objects.equals(username, client.getUsername()))
                 throw new UsernameAlreadyExistsException(username);
         }
     }
-    private static void persistUsers() {
+
+    private static void checkManagerDoesNotAlreadyExist(String username) throws UsernameAlreadyExistsException {
+        for (Manager manager : managers) {
+            if (Objects.equals(username, manager.getUsername()))
+                throw new UsernameAlreadyExistsException(username);
+        }
+    }
+
+    private static void persistClients() {
         try {
             ObjectMapper objectMapper = new ObjectMapper();
-            objectMapper.writerWithDefaultPrettyPrinter().writeValue(USERS_PATH.toFile(), users);
+            objectMapper.writerWithDefaultPrettyPrinter().writeValue(CLIENTS_PATH.toFile(), clients);
+        } catch (IOException e) {
+            throw new CouldNotWriteUsersException();
+        }
+    }
+
+    private static void persistManagers() {
+        try {
+            ObjectMapper objectMapper = new ObjectMapper();
+            objectMapper.writerWithDefaultPrettyPrinter().writeValue(Managers_PATH.toFile(), managers);
         } catch (IOException e) {
             throw new CouldNotWriteUsersException();
         }
@@ -69,9 +102,8 @@ public class UserService {
 
         byte[] hashedPassword = md.digest(password.getBytes(StandardCharsets.UTF_8));
 
-        // This is the way a password should be encoded when checking the credentials
         return new String(hashedPassword, StandardCharsets.UTF_8)
-                .replace("\"", ""); //to be able to save in JSON format
+                .replace("\"", "");
     }
 
     private static MessageDigest getMessageDigest() {
@@ -85,4 +117,23 @@ public class UserService {
     }
 
 
+    public static boolean verifyClient(String username, String password) {
+        for (Client client : clients) {
+            if (username.equals(client.getUsername()) && Objects.equals(encodePassword(username, password), client.getPassword()))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static boolean verifyManager(String username, String password){
+        for (Manager manager : managers) {
+            if (Objects.equals(username, manager.getUsername()) && Objects.equals(encodePassword(username,password), manager.getPassword()))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 }

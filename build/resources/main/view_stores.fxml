@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+
+<AnchorPane depthTest="ENABLE" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: #6495ed; -fx-background-radius: 25;" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="ShoppingCenter.Controllers.ViewStoresController">
+    <Button layoutX="445.0" layoutY="450.0" mnemonicParsing="false" onAction="#handleLoginButtonAction" text="Return to login">
+        <font>
+            <Font name="Californian FB" size="18.0" />
+        </font>
+        <effect>
+            <DropShadow height="23.97" radius="12.225" width="26.93" />
+        </effect></Button>
+
+    <children>
+        <BorderPane prefHeight="400.0" prefWidth="600.0">
+            <center>
+                <TableView fx:id="storeTable" prefHeight="400.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+                    <columns>
+                        <TableColumn fx:id="Store_name" prefWidth="190.0" text="Store Name"/>
+
+                    </columns>
+                </TableView>
+            </center>
+            <padding>
+                <Insets bottom="50.0" left="20.0" right="20.0" top="50.0"/>
+            </padding>
+
+        </BorderPane>
+    </children>
+</AnchorPane>

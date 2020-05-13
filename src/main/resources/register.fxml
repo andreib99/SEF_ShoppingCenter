@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<Pane depthTest="ENABLE" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #6495ed; -fx-background-radius: 25; -fx-background-image: ;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ShoppingCenter.Controllers.RegisterController">
+<Pane depthTest="ENABLE" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #6495ed; -fx-background-radius: 25;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ShoppingCenter.Controllers.RegisterController">
    <children>
       <Label layoutX="198.0" layoutY="14.0" maxWidth="205.0" minWidth="-Infinity" prefHeight="49.0" prefWidth="205.0" text="SEF - SHOPPING CENTRE">
          <font>
@@ -59,7 +59,14 @@
          </font>
       </Label>
       <ChoiceBox fx:id="role" layoutX="197.0" layoutY="108.0" prefWidth="150.0" />
-      <Button layoutX="435.0" layoutY="229.0" mnemonicParsing="false" onAction="#handleSigninButtonAction" text="Sign in ">
+      <Button layoutX="435.0" layoutY="229.0" mnemonicParsing="false" onAction="#handleSigningButtonAction" text="Sign in ">
+         <font>
+            <Font name="Californian FB" size="18.0" />
+         </font>
+         <effect>
+            <DropShadow height="23.97" radius="12.225" width="26.93" />
+         </effect></Button>
+      <Button layoutX="435.0" layoutY="180.0" mnemonicParsing="false" onAction="#handleLoginButtonAction" text="Return to login ">
          <font>
             <Font name="Californian FB" size="18.0" />
          </font>

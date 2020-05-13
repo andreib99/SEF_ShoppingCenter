@@ -1,7 +1,6 @@
 package ShoppingCenter.Controllers;
 
-
-import ShoppingCenter.Model.User;
+import ShoppingCenter.Model.Client;
 import javafx.embed.swing.JFXPanel;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,6 +15,9 @@ import ShoppingCenter.Services.UserService;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
+
+import static ShoppingCenter.Services.UserService.clients;
 
 public class LoginController< choice > {
 
@@ -36,7 +38,6 @@ public class LoginController< choice > {
         private String getChoice()
         {
             String choice =this.role.getValue();
-            LoginMessage.setText("Picked " + choice);
             return choice;
         }
         @FXML
@@ -44,7 +45,7 @@ public class LoginController< choice > {
         {
             try {
                 Stage stage = (Stage) LoginMessage.getScene().getWindow();
-                Parent register = FXMLLoader.load(getClass().getClassLoader().getResource("register.fxml"));
+                Parent register = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("register.fxml")));
                 Scene scene = new Scene(register, 600, 400);
                 stage.setScene(scene);
             } catch (Exception e) {
@@ -53,11 +54,52 @@ public class LoginController< choice > {
         }
         @FXML
         public void handleLoginButtonAction() {
+            String username = usernameField.getText();
+            String password = passwordField.getText();
+            String Role = role.getValue();
+
+            if(username == null || username.isEmpty())
+            {
+                LoginMessage.setText("Please type in a username!");
+                return;
+            }
+            if(password == null || password.isEmpty())
+            {
+                LoginMessage.setText("Please type in a password!");
+                return;
+            }
+            if(Role == null ||Role.isEmpty())
+            {
+                LoginMessage.setText("Please select a role!");
+                return;
+            }
+
+            if(getChoice().equals("Client"))
+            {
+                if(!UserService.verifyClient(username, password))
+                {
+                    LoginMessage.setText("The credentials are invalid!");
+                    return;
+                }
+            }
+            if(getChoice().equals("Manager"))
+            {
+                if(!UserService.verifyManager(username, password))
+                {
+                    LoginMessage.setText("The credentials are invalid!");
+                    return;
+                }
+            }
             try {
-                UserService.verifyUser(usernameField.getText(), passwordField.getText(), (String) role.getValue());
-                LoginMessage.setText("Account created successfully!");
-            } catch (UsernameAlreadyExistsException e) {
-                LoginMessage.setText(e.getMessage());
+                LoginMessage.setText("Login successfully!");
+                Stage stage = (Stage) LoginMessage.getScene().getWindow();
+                Parent store = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("view_stores.fxml")));
+
+                Scene scene = new Scene(store);
+                stage.setScene(scene);
+
+            }catch (Exception e){
+                e.printStackTrace();
             }
         }
 

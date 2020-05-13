@@ -1,0 +1,15 @@
+[ {
+  "store" : "Nike",
+  "username" : "Andrei",
+  "password" : "Qd(�Iv\u0014�po\u0017���L�vn6!\u00182�y\u0004���j����.~���U�\u0016�5�;),+�\u0014X\u0019�Z�@6�>�c�",
+  "number" : "0742876877",
+  "name" : "Andrei",
+  "store_name" : "Nike"
+}, {
+  "store" : "Media Galaxy",
+  "username" : "Seba",
+  "password" : "�\u0014J�I�\u00199�!`\u0017,\u001B�h��\t�q_d@���\u001FHI�z{2I��e��\b�o��\u000E��Ï/�E@�>�\u0017���\u001Cg�",
+  "number" : "12345",
+  "name" : "Sebastian",
+  "store_name" : "Media Galaxy"
+} ]
