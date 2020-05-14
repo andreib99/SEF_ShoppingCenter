@@ -1,7 +1,6 @@
 package ShoppingCenter.Controllers;
 
-import ShoppingCenter.Model.Client;
-import javafx.embed.swing.JFXPanel;
+import ShoppingCenter.Services.UserService;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -10,14 +9,10 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
-import ShoppingCenter.Exceptions.UsernameAlreadyExistsException;
-import ShoppingCenter.Services.UserService;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.Objects;
-
-import static ShoppingCenter.Services.UserService.clients;
 
 public class LoginController< choice > {
 
@@ -91,6 +86,18 @@ public class LoginController< choice > {
                 }
             }
             try {
+
+
+                if(getChoice().equals("Client"))
+                {
+                    UserService.setCurrent_client(usernameField.getText());
+                    UserService.setCurrent_manager("");
+                }
+                if(getChoice().equals("Manager"))
+                {
+                    UserService.setCurrent_manager(usernameField.getText());
+                    UserService.setCurrent_client("");
+                }
                 LoginMessage.setText("Login successfully!");
                 Stage stage = (Stage) LoginMessage.getScene().getWindow();
                 Parent store = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("view_stores.fxml")));

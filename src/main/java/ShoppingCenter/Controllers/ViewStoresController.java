@@ -23,10 +23,14 @@ public class ViewStoresController {
 
     @FXML
     public TableColumn<Manager, String> Store_name;
+    public TableColumn<Manager, String> Manager_name;
+    public TableColumn<Manager, String> Manager_number;
 
     @FXML
     public void initialize() {
         Store_name.setCellValueFactory(new PropertyValueFactory<>("Store_name"));
+        Manager_name.setCellValueFactory(new PropertyValueFactory<>("username"));
+        Manager_number.setCellValueFactory(new PropertyValueFactory<>("number"));
         storeTable.setItems(lines);
     }
 
@@ -43,4 +47,17 @@ public class ViewStoresController {
             e.printStackTrace();
         }
     }
+
+    public void handleEditButtonAction()
+    {
+        try {
+            Stage stage = (Stage) storeTable.getScene().getWindow();
+            Parent store = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("edit_profile.fxml")));
+            Scene scene = new Scene(store);
+            stage.setScene(scene);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
 }

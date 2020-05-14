@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane depthTest="ENABLE" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #6495ed; -fx-background-radius: 25;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ShoppingCenter.Controllers.EditProfileController">
+    <children>
+        <Label layoutX="198.0" layoutY="14.0" maxWidth="205.0" minWidth="-Infinity" prefHeight="49.0" prefWidth="205.0" text="SEF - SHOPPING CENTRE">
+            <font>
+                <Font name="Arial Bold Italic" size="15.0" />
+            </font>
+        </Label>
+        <Text fx:id="EditMessage" layoutX="404.0" layoutY="300.0" wrappingWidth="140.33495825529099" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+        <Label layoutX="243.0" layoutY="55.0" text="EDIT PROFILE">
+            <font>
+                <Font name="Arial Bold Italic" size="15.0" />
+            </font>
+        </Label>
+        <Label layoutX="132.0" layoutY="114.0" text="Name">
+            <font>
+                <Font name="Arial Bold Italic" size="13.0" />
+            </font>
+        </Label>
+        <Label layoutX="118.0" layoutY="152.0" text="Username">
+            <font>
+                <Font name="Arial Bold" size="13.0" />
+            </font>
+        </Label>
+        <Label layoutX="119.0" layoutY="190.0" text="Password">
+            <font>
+                <Font name="Arial Bold" size="13.0" />
+            </font>
+        </Label>
+        <Label layoutX="93.0" layoutY="227.0" text="Phone number">
+            <font>
+                <Font name="Arial Bold" size="13.0" />
+            </font>
+        </Label>
+        <TextField fx:id="nameField" alignment="TOP_CENTER" layoutX="207.0" layoutY="110.0" promptText="name" />
+        <TextField fx:id="usernameField" alignment="CENTER" layoutX="207.0" layoutY="148.0" promptText="username" />
+        <TextField fx:id="addressField" alignment="CENTER" layoutX="207.0" layoutY="260.0" promptText="address" />
+        <TextField fx:id="numberField" alignment="CENTER" layoutX="207.0" layoutY="222.0" promptText="number" />
+        <Label layoutX="123.0" layoutY="264.0" text="Address">
+            <font>
+                <Font name="Arial Bold" size="13.0" />
+            </font></Label>
+        <PasswordField fx:id="passwordField" alignment="CENTER" layoutX="207.0" layoutY="185.0" promptText="password" />
+        <Label layoutX="114.0" layoutY="298.0" text="Store name">
+            <font>
+                <Font name="Arial Bold" size="13.0" />
+            </font>
+        </Label>
+        <TextField fx:id="storeField" alignment="CENTER" layoutX="207.0" layoutY="294.0" promptText="store name" />
+        <Button layoutX="429.0" layoutY="222.0" mnemonicParsing="false" onAction="#handleEditButtonAction" prefHeight="42.0" prefWidth="81.0" text="Apply">
+            <font>
+                <Font name="Californian FB" size="18.0" />
+            </font>
+            <effect>
+                <DropShadow height="23.97" radius="12.225" width="26.93" />
+            </effect></Button>
+        <Button layoutX="429.0" layoutY="148.0" mnemonicParsing="false" onAction="#handleViewStoresButtonAction" prefHeight="42.0" prefWidth="81.0" text="Back">
+            <font>
+                <Font name="Californian FB" size="18.0" />
+            </font>
+            <effect>
+                <DropShadow height="23.97" radius="12.225" width="26.93" />
+            </effect></Button>
+    </children>
+</Pane>

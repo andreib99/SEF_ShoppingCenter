@@ -1,5 +1,6 @@
 package ShoppingCenter.Controllers;
 
+import ShoppingCenter.Exceptions.StoreAlreadyExistsException;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -54,16 +55,17 @@ public class RegisterController< choice > {
 
         try {
             if(getChoice().equals("Manager")) {
-                System.out.println("Hei");
+                UserService.setCurrent_manager(usernameField.getText());
                 UserService.addManager(usernameField.getText(), passwordField.getText()
                         ,nameField.getText(),numberField.getText(),storeField.getText() );
             }
             if(getChoice().equals("Client")) {
                  UserService.addClient(usernameField.getText(), passwordField.getText()
                        ,nameField.getText(),numberField.getText(),addressField.getText());
+                UserService.setCurrent_client(usernameField.getText());
             }
             LoginMessage.setText("Account created successfully!");
-        } catch (UsernameAlreadyExistsException e) {
+        } catch (UsernameAlreadyExistsException | StoreAlreadyExistsException e) {
             LoginMessage.setText(e.getMessage());
         }
     }

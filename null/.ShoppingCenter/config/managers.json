@@ -2,14 +2,28 @@
   "store" : "Nike",
   "username" : "Andrei",
   "password" : "Qd(�Iv\u0014�po\u0017���L�vn6!\u00182�y\u0004���j����.~���U�\u0016�5�;),+�\u0014X\u0019�Z�@6�>�c�",
-  "number" : "0742876877",
+  "number" : "0743987754",
   "name" : "Andrei",
   "store_name" : "Nike"
 }, {
   "store" : "Media Galaxy",
-  "username" : "Seba",
-  "password" : "�\u0014J�I�\u00199�!`\u0017,\u001B�h��\t�q_d@���\u001FHI�z{2I��e��\b�o��\u000E��Ï/�E@�>�\u0017���\u001Cg�",
-  "number" : "12345",
+  "username" : "Sebastian",
+  "password" : "��\u0002ܟ��i�/F�\u0010\t������$��WRn��/�x��Pi��u���}\u0011\u0006�\u0004c���S�6��l�r$��\u0013",
+  "number" : "0654856675",
   "name" : "Sebastian",
   "store_name" : "Media Galaxy"
+}, {
+  "store" : "Zara",
+  "username" : "Mircea",
+  "password" : "H\t��V�ͤ��\u001FV�;̚+*\u0019n�'5�9n�+�\u001D���0ώb�1X���8\r#�i \u0007��\u0003߂�\u0013��`�N��",
+  "number" : "0765354498",
+  "name" : "Mircea",
+  "store_name" : "Pull and Bear"
+}, {
+  "store" : "Carturesti",
+  "username" : "Vasile",
+  "password" : "\u0012ըڂ��&\u0019�w���n\u001C_�\u0010�\u001B�B���>����\u0010�P�6��������!�B\u0013�\u00168���W\u0003uK�Qٯ�",
+  "number" : "12345678",
+  "name" : "Vasile",
+  "store_name" : "Carturesti"
 } ]
