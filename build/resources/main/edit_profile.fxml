@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane depthTest="ENABLE" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #6495ed; -fx-background-radius: 25;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ShoppingCenter.Controllers.EditProfileController">
+    <children>
+        <Label layoutX="179.0" layoutY="14.0" maxWidth="243.0" minWidth="-Infinity" prefHeight="48.0" prefWidth="243.0" text="SEF - SHOPPING CENTRE">
+            <font>
+                <Font name="Arial Bold Italic" size="18.0" />
+            </font>
+        </Label>
+        <Text fx:id="EditMessage" layoutX="404.0" layoutY="300.0" wrappingWidth="140.33495825529099" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+        <Label layoutX="227.0" layoutY="55.0" prefHeight="21.0" prefWidth="129.0" text="Edit Profile">
+            <font>
+                <Font name="Arial Bold Italic" size="18.0" />
+            </font>
+        </Label>
+        <Label layoutX="130.0" layoutY="107.0" text="Name">
+            <font>
+                <Font name="Arial Bold" size="15.0" />
+            </font>
+        </Label>
+        <Label layoutX="117.0" layoutY="151.0" text="Username">
+            <font>
+                <Font name="Arial Bold" size="15.0" />
+            </font>
+        </Label>
+        <Label layoutX="117.0" layoutY="192.0" text="Password">
+            <font>
+                <Font name="Arial Bold" size="15.0" />
+            </font>
+        </Label>
+        <Label layoutX="83.0" layoutY="233.0" text="Phone number">
+            <font>
+                <Font name="Arial Bold" size="15.0" />
+            </font>
+        </Label>
+        <TextField fx:id="nameField" alignment="TOP_CENTER" layoutX="199.0" layoutY="103.0" prefHeight="25.0" prefWidth="183.0" promptText="name" />
+        <TextField fx:id="usernameField" alignment="CENTER" layoutX="198.0" layoutY="147.0" prefHeight="25.0" prefWidth="183.0" promptText="username" />
+        <TextField fx:id="addressField" alignment="CENTER" layoutX="194.0" layoutY="271.0" prefHeight="25.0" prefWidth="183.0" promptText="address" />
+        <TextField fx:id="numberField" alignment="CENTER" layoutX="198.0" layoutY="229.0" prefHeight="25.0" prefWidth="183.0" promptText="number" />
+        <Label layoutX="114.0" layoutY="276.0" text="Address">
+            <font>
+                <Font name="Arial Bold" size="15.0" />
+            </font></Label>
+        <PasswordField fx:id="passwordField" alignment="CENTER" layoutX="198.0" layoutY="188.0" prefHeight="25.0" prefWidth="183.0" promptText="password" />
+        <Label layoutX="105.0" layoutY="318.0" text="Store name">
+            <font>
+                <Font name="Arial Bold" size="15.0" />
+            </font>
+        </Label>
+        <TextField fx:id="storeField" alignment="CENTER" layoutX="194.0" layoutY="313.0" prefHeight="25.0" prefWidth="183.0" promptText="store name" />
+        <Button layoutX="435.0" layoutY="229.0" mnemonicParsing="false" onAction="#handleApplyButtonAction" prefHeight="34.0" prefWidth="80.0" text="Apply ">
+            <font>
+                <Font name="Californian FB" size="18.0" />
+            </font>
+            <effect>
+                <DropShadow height="23.97" radius="12.225" width="26.93" />
+            </effect></Button>
+        <Button layoutX="435.0" layoutY="180.0" mnemonicParsing="false" onAction="#handleReturnButtonAction" text="Return ">
+            <font>
+                <Font name="Californian FB" size="18.0" />
+            </font>
+            <effect>
+                <DropShadow height="23.97" radius="12.225" width="26.93" />
+            </effect></Button>
+    </children>
+</Pane>
