@@ -71,7 +71,7 @@ public class UserService {
                 {
                     manager.setNumber(number);
                 }
-                if(!store.isEmpty())
+                if(!store.isEmpty() && !store.equals(manager.getStore_name()))
                 {
                     checkStoreDoesNotAlreadyExist(store);
                     manager.setStore_name(store);
